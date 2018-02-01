@@ -64,7 +64,9 @@ function createSquare(width, height) {
   //If the window has been resized then re-create a new square
   window.addEventListener("resize", function(e) {
     console.log("resized");
+    if(playArea.hasChildNodes()) {
     playArea.removeChild(square);
+  }
     setTimeout(function() {
       playArea.appendChild(createSquare(randomInt(30, 100), randomInt(30, 100)));
     }, 1000);
