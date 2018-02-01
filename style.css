@@ -32,22 +32,11 @@ h1 {
 }
 
 footer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 20%;
   background: black;
+  text-align: center;
+  height: 100%;
 }
 
 footer a, footer p {
   background: black;
-}
-
-footer a {
-  text-decoration: none;
-}
-
-footer a:hover {
-  text-decoration: underline;
 }
