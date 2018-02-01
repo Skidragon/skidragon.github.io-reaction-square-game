@@ -58,7 +58,17 @@ function createSquare(width, height) {
   square.style.top = topLocOfSq + "px";
   square.style.left = leftLocOfSq + "px";
 
+
   square.zIndex = "100"; //makes sure nothing covers the square
+
+//If the window has been resized then re-create a new square
+  window.addEventListener("resize", function(e) {
+    console.log("resized");
+    playArea.removeChild(square);
+    setTimeout(function() {
+      playArea.appendChild(createSquare(randomInt(30, 100), randomInt(30, 100)));
+    }, 1000);
+  });
 
   square.addEventListener("click", function(e) {
 
