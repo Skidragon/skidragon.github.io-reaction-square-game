@@ -4,7 +4,6 @@
   margin: 0;
   background: grey;
 }
-
 p {
   font-size: 1.8em;
 }
@@ -27,7 +26,7 @@ h1 {
 .play-area {
   position: relative;
   width: 100%;
-  height: 700px;
+  height: 550px;
   background: lightblue;
   cursor: crosshair;
 }
