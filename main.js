@@ -50,6 +50,7 @@ function createSquare(width, height) {
     topLocOfSq -= sqHeight;
   }
 
+//ERROR sometimes part of the square leaves the play area
   if (leftLocOfSq+sqWidth > playArea.offsetWidth) {
     console.log("left");
     leftLocOfSq -= sqWidth;
@@ -64,6 +65,9 @@ function createSquare(width, height) {
   //If the window has been resized then re-create a new square
   window.addEventListener("resize", function(e) {
     console.log("resized");
+
+//ERROR Uncaught DOMException: Failed to execute 'removeChild' on 'Node': The node to be removed is not a child of this node. Is there a better way to remove the children from playArea and re-create the square when re-sizing?
+
     if(playArea.hasChildNodes()) {
     playArea.removeChild(square);
   }
