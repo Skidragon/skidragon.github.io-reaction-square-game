@@ -41,6 +41,10 @@ footer a, footer p {
   background: black;
 }
 
+footer a {
+  display: inline-block;
+  margin-top: 40px;
+}
 
 /*Phone Media Queries*/
 @media screen and (orientation: portrait) {
