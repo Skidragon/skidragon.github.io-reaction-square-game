@@ -1,3 +1,4 @@
+[![Waffle.io - Columns and their card count](https://badge.waffle.io/Skidragon/skidragon.github.io-reaction-square-game.png?columns=all)](https://waffle.io/Skidragon/skidragon.github.io-reaction-square-game?utm_source=badge)
 
 The website can be found here:
 https://skidragon.github.io/skidragon.github.io-reaction-square-game/
