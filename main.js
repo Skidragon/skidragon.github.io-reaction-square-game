@@ -18,11 +18,14 @@ function createSquare(width, height) {
   const startTime = new Date().getTime(); //getTime() returns the time in milliseconds
 
   square.style.display = "block";
+
   square.style.width = width + "px";
   square.style.height = height + "px";
-  square.style.background = colorsArr[randomInt(0, colorsArr.length - 1)];
-  square.style.position = 'absolute';
 
+  square.style.background = colorsArr[randomInt(0, colorsArr.length - 1)];
+
+  //sets a random starting location for the square
+  square.style.position = "absolute";
   square.style.top = (randomInt(0, playArea.offsetHeight)) + "px";
   square.style.left = (randomInt(0, playArea.offsetWidth)) + "px";
 
@@ -82,7 +85,6 @@ function createSquare(width, height) {
 
 function initGame() {
 playArea.appendChild(createSquare(randomInt(30,100), randomInt(30,100)));
-playArea.style.cursor = "crosshair";
 }
 
 initGame();
