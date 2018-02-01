@@ -7,9 +7,6 @@ function randomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-const createNewWidth = randomInt(30, 100);
-const createNewHeight = randomInt(30, 100);
-
 function removePx(pxStr) {
   return pxStr.substr(0, pxStr.indexOf("px"));
 }
@@ -23,7 +20,6 @@ function createSquare(width, height) {
   square.style.display = "block";
   square.style.width = width + "px";
   square.style.height = height + "px";
-
   square.style.background = colorsArr[randomInt(0, colorsArr.length - 1)];
   square.style.position = 'absolute';
 
@@ -61,7 +57,7 @@ function createSquare(width, height) {
 
   square.zIndex = "100"; //makes sure nothing covers the square
 
-//If the window has been resized then re-create a new square
+  //If the window has been resized then re-create a new square
   window.addEventListener("resize", function(e) {
     console.log("resized");
     playArea.removeChild(square);
@@ -79,9 +75,14 @@ function createSquare(width, height) {
       displayTime.textContent = endTime - startTime + " milliseconds";
     }
 
-    playArea.appendChild(createSquare(createNewWidth, createNewHeight));
+    playArea.appendChild(createSquare(randomInt(30,100), randomInt(30,100)));
   });
   return square;
 }
 
-playArea.appendChild(createSquare(createNewWidth, createNewHeight));
+function initGame() {
+playArea.appendChild(createSquare(randomInt(30,100), randomInt(30,100)));
+playArea.style.cursor = "crosshair";
+}
+
+initGame();
