@@ -40,3 +40,16 @@ footer {
 footer a, footer p {
   background: black;
 }
+
+
+/*Phone Media Queries*/
+@media screen and (orientation: portrait) {
+  .play-area {
+    height: 500px;
+  }
+}
+@media screen and (orientation: landscape) {
+  .play-area {
+    height: 300px;
+  }
+}
