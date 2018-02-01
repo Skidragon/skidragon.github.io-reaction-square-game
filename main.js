@@ -3,15 +3,24 @@ const displayTime = document.getElementById("time");
 
 const colorsArr = ["orange", "red", "green", "purple"];
 
+
 function randomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
 
 function removePx(pxStr) {
   return pxStr.substr(0, pxStr.indexOf("px"));
 }
 
 function createSquare(width, height) {
+
+  if(width === undefined) {
+    width = randomInt(30,100);
+  }
+  if(height === undefined) {
+    height = randomInt(30,100);
+  }
 
   const square = document.createElement("div");
 
@@ -35,23 +44,15 @@ function createSquare(width, height) {
   let sqHeight = Number(removePx(square.style.height));
   let sqWidth = Number(removePx(square.style.height));
 
-  if (topLocOfSq < playArea.offsetHeight / 2) {
-    console.log("top");
-    topLocOfSq += sqHeight;
-  }
 
-  if (topLocOfSq > playArea.offsetHeight / 2) {
+  if (topLocOfSq+sqHeight > playArea.offsetHeight) {
     console.log("bottom");
     topLocOfSq -= sqHeight;
   }
 
-  if (leftLocOfSq > playArea.offsetWidth / 2) {
+  if (leftLocOfSq+sqWidth > playArea.offsetWidth) {
     console.log("left");
     leftLocOfSq -= sqWidth;
-  }
-  if (leftLocOfSq < playArea.offsetWidth / 2) {
-    console.log("right");
-    leftLocOfSq += sqWidth;
   }
 
   square.style.top = topLocOfSq + "px";
@@ -69,14 +70,13 @@ function createSquare(width, height) {
     }, 1000);
   });
 
+  //when the square is clicked then calculate the time plus remove the old square and add a new square
   square.addEventListener("click", function(e) {
 
     playArea.removeChild(square);
 
-    if (playArea.hasChildNodes()) {
       const endTime = new Date().getTime();
       displayTime.textContent = endTime - startTime + " milliseconds";
-    }
 
     playArea.appendChild(createSquare(randomInt(30,100), randomInt(30,100)));
   });
